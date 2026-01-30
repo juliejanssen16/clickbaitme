@@ -1,19 +1,32 @@
 :root{
-  --bg: #120014;
-  --card: rgba(255, 255, 255, .08);
-  --card2: rgba(255, 255, 255, .12);
-  --text: rgba(255,255,255,.94);
-  --muted: rgba(255,255,255,.70);
+  /* Pastel rainbow base */
+  --bg: #fff7fb;
 
-  --pink: #ff4fd8;
-  --hotpink: #ff2bbf;
-  --softpink: rgba(255, 79, 216, .18);
-  --softpink2: rgba(255, 79, 216, .28);
+  --card: rgba(255, 255, 255, .72);
+  --card2: rgba(255, 255, 255, .86);
 
-  --shadow: 0 24px 70px rgba(0,0,0,.55);
+  --text: rgba(60, 50, 70, .95);
+  --muted: rgba(60, 50, 70, .65);
+
+  /* Accent palette (pastel) */
+  --pink: #ff8fcb;
+  --hotpink: #ff6fb5;
+
+  --softpink: rgba(255, 143, 203, .20);
+  --softpink2: rgba(255, 143, 203, .32);
+
+  /* Rainbow helpers */
+  --lav: #cdb8ff;
+  --blue: #aeefff;
+  --mint: #bff6d9;
+  --butter: #fff2b8;
+
+  --shadow: 0 24px 70px rgba(60, 40, 80, .16);
   --radius: 22px;
-  --ring: 0 0 0 3px rgba(255, 79, 216, .25);
-  --ring2: 0 0 0 4px rgba(255, 79, 216, .30);
+
+  --ring: 0 0 0 3px rgba(255, 143, 203, .28);
+  --ring2: 0 0 0 4px rgba(205, 184, 255, .35);
+
   --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
@@ -25,21 +38,25 @@ body{
   font-family: var(--font);
   color: var(--text);
 
+  /* Pastel rainbow dreamy background (keeps your layered vibe) */
   background:
-    radial-gradient(1200px 800px at 15% 10%, rgba(255,79,216,.20), transparent 60%),
-    radial-gradient(900px 600px at 90% 25%, rgba(255,43,191,.18), transparent 55%),
-    radial-gradient(700px 520px at 55% 95%, rgba(255,255,255,.06), transparent 60%),
-    var(--bg);
+    radial-gradient(1200px 800px at 15% 10%, rgba(255,143,203,.35), transparent 60%),
+    radial-gradient(900px 600px at 90% 25%, rgba(205,184,255,.35), transparent 55%),
+    radial-gradient(950px 650px at 30% 95%, rgba(174,239,255,.35), transparent 60%),
+    radial-gradient(900px 650px at 80% 90%, rgba(191,246,217,.35), transparent 60%),
+    radial-gradient(700px 520px at 55% 55%, rgba(255,242,184,.28), transparent 60%),
+    linear-gradient(135deg, rgba(255, 240, 248, 1), rgba(244, 245, 255, 1));
 
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
+/* keep your noise, but softer */
 .bg-noise{
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: .07;
+  opacity: .06;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
 }
@@ -71,8 +88,15 @@ body{
   display: grid;
   place-items: center;
 
-  background: linear-gradient(135deg, rgba(255,79,216,.22), rgba(255,255,255,.08));
-  border: 1px solid rgba(255,79,216,.30);
+  /* Pastel rainbow badge */
+  background: linear-gradient(135deg,
+    rgba(255,143,203,.55),
+    rgba(205,184,255,.55),
+    rgba(174,239,255,.55),
+    rgba(191,246,217,.55),
+    rgba(255,242,184,.55)
+  );
+  border: 1px solid rgba(255,143,203,.40);
   box-shadow: var(--shadow);
 
   font-weight: 900;
@@ -100,8 +124,8 @@ h1{
 }
 
 .pill{
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,79,216,.22);
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(205,184,255,.45);
   border-radius: 999px;
   padding: 10px 12px;
   min-width: 110px;
@@ -114,13 +138,14 @@ h1{
 .pill span{ color: var(--muted); font-size: 12px; }
 .pill strong{ font-size: 18px; letter-spacing: .01em; }
 
+/* Card becomes glassy pastel */
 .card{
-  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
-  border: 1px solid rgba(255,79,216,.22);
+  background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
+  border: 1px solid rgba(255,143,203,.32);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 16px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .row{
@@ -144,8 +169,10 @@ h1{
   letter-spacing: -0.01em;
   padding: 10px 12px;
   border-radius: 14px;
-  background: rgba(255,79,216,.10);
-  border: 1px dashed rgba(255,79,216,.35);
+
+  /* pastel highlight */
+  background: linear-gradient(135deg, rgba(255,143,203,.18), rgba(205,184,255,.18), rgba(174,239,255,.18));
+  border: 1px dashed rgba(255,143,203,.45);
 }
 
 .controls{
@@ -155,8 +182,8 @@ h1{
 }
 
 .btn{
-  border: 1px solid rgba(255,79,216,.28);
-  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,143,203,.35);
+  background: rgba(255,255,255,.68);
   color: var(--text);
   padding: 12px 14px;
   border-radius: 14px;
@@ -167,15 +194,19 @@ h1{
   touch-action: manipulation;
 }
 
-.btn:hover{ background: rgba(255,255,255,.12); }
+.btn:hover{ background: rgba(255,255,255,.82); }
 .btn:active{ transform: translateY(1px) scale(.99); }
 .btn:focus-visible{ outline: none; box-shadow: var(--ring); }
 
 .btn.primary{
-  background: linear-gradient(135deg, rgba(255,79,216,.25), rgba(255,255,255,.10));
-  border-color: rgba(255,79,216,.40);
+  background: linear-gradient(135deg,
+    rgba(255,143,203,.40),
+    rgba(205,184,255,.34),
+    rgba(174,239,255,.34)
+  );
+  border-color: rgba(255,143,203,.55);
 }
-.btn.primary:hover{ background: rgba(255,79,216,.20); }
+.btn.primary:hover{ background: rgba(255,143,203,.22); }
 .btn.ghost{ opacity: .95; }
 
 .btn:disabled{
@@ -187,34 +218,48 @@ h1{
   margin-top: 14px;
   padding: 12px;
   border-radius: 18px;
+
+  /* pastel arena glow */
   background:
-    radial-gradient(900px 500px at 50% 0%, rgba(255,79,216,.16), transparent 55%),
-    rgba(0,0,0,.18);
-  border: 1px solid rgba(255,79,216,.20);
+    radial-gradient(900px 500px at 50% 0%, rgba(255,143,203,.22), transparent 55%),
+    radial-gradient(900px 520px at 20% 70%, rgba(205,184,255,.22), transparent 58%),
+    radial-gradient(900px 520px at 80% 70%, rgba(174,239,255,.22), transparent 58%),
+    rgba(255,255,255,.42);
+
+  border: 1px solid rgba(205,184,255,.38);
   min-height: 360px;
   position: relative;
   overflow: hidden;
   touch-action: manipulation;
 }
 
+/* Your JS-created buttons keep class .gameBtn */
 .gameBtn{
   position: absolute;
   border-radius: 18px;
-  border: 1px solid rgba(255,79,216,.25);
-  background: rgba(255,255,255,.10);
+
+  border: 1px solid rgba(255,143,203,.35);
+  background: linear-gradient(135deg,
+    rgba(255,255,255,.75),
+    rgba(255,143,203,.18),
+    rgba(205,184,255,.16),
+    rgba(174,239,255,.16)
+  );
+
   color: var(--text);
   font-weight: 850;
   letter-spacing: .01em;
   cursor: pointer;
   display: grid;
   place-items: center;
-  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+
+  box-shadow: 0 12px 28px rgba(60,40,80,.18);
   transition: transform .09s ease, filter .15s ease;
   user-select: none;
   touch-action: manipulation;
 }
 
-.gameBtn:hover{ filter: brightness(1.15); }
+.gameBtn:hover{ filter: brightness(1.06) saturate(1.12); }
 .gameBtn:active{ transform: scale(.98); }
 .gameBtn:focus-visible{ outline: none; box-shadow: var(--ring2); }
 
@@ -239,9 +284,9 @@ h1{
 .credit{
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px dotted rgba(255,79,216,.55);
+  border-bottom: 1px dotted rgba(255,143,203,.65);
 }
-.credit:hover{ border-bottom-color: rgba(255,79,216,.95); }
+.credit:hover{ border-bottom-color: rgba(255,111,181,.95); }
 
 .linklike{
   background: transparent;
@@ -249,9 +294,9 @@ h1{
   color: var(--text);
   cursor: pointer;
   padding: 0;
-  border-bottom: 1px dotted rgba(255,79,216,.55);
+  border-bottom: 1px dotted rgba(205,184,255,.75);
 }
-.linklike:hover{ border-bottom-color: rgba(255,79,216,.95); }
+.linklike:hover{ border-bottom-color: rgba(255,143,203,.95); }
 
 @media (max-width: 640px){
   .wrap{ margin: 16px auto 18px; }
